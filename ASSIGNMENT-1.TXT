@@ -1,0 +1,65 @@
+	
+	//Task 1:TABLE 1
+	--------------------------------
+		CREATE TABLE MOVIES(
+		MOVIE_ID INT PRIMARY KEY,
+		MOVIE_NAME VARCHAR(255) UNIQUE NOT NULL,
+		MOVIE_TYPE VARCHAR(255)  NOT NULL,
+		MOVIE_RATING INT);
+		===========================================
+		TABLE 2:
+		
+		CREATE TABLE COMPANY(
+		COMPANY_ID INT PRIMARY KEY,
+		TRADE VARCHAR(255)  NOT NULL,
+		NUMBER_OF_EMPLOYESS INT   NOT NULL DEFAULT 0
+		);
+		===============================================
+		TABLE:3
+		
+		CREATE TABLE JOB_OFFER(
+		OFFER_ID INT AUTO_INCREMENT PRIMARY KEY ,
+		OFFER_TITLE  VARCHAR(255) NOT NULL  DEFAULT " " ,
+		OFFER_MIN_SALARY INT DEFAULT 5000,
+		OFFER_MAX_SALARY INT NULL,
+		COMPANY_ID INT,
+		FOREIGN KEY (COMPANY_ID)
+		REFERENCES COMPANY (COMPANY_ID)
+		ON UPDATE RESTRICT
+		ON DELETE CASCADE
+		);
+		//ALERT:
+		------------------------------------------
+		Write a SQL statement to rename the movies table to movies_renamed.
+		RENAME TABLE MOVIES TO MOVIES_RENAMED;
+
+Write a SQL statement to add a column movie_director to the movies_renamed table.
+ALTER TABLE MOVIES_RENAMED
+ADD COLUMN MOVIE_DIRECTOR VARCHAR(50);
+
+Write a SQL statement to add a column ID as a first column of the movies_renamed table.
+
+
+Write a SQL statement to add a column movie_description after the movie_name column in movies_renamed table.
+ALTER TABLE MOVIES_RENAMED
+ADD COLUMN MOVIE_DESCRIPTION VARCHAR(100) AFTER MOVIE_NAME;
+
+Write a SQL statement to change the data type of the column movie_rating to integer.
+ALTER TABLE MOVIES_RENAMED
+MODIFY COLUMN MOVIE_RATING INT;
+Write a SQL statement to drop the movie_director column.
+
+ALTER TABLE MOVIES_RENAMED
+DROP COLUMN MOVIE_DIRECTOR;
+
+Write a SQL statement to drop the existing primary key from the movies_renamed table.
+
+ALTER TABLE MOVIES_RENAMED
+DROP COLUMN MOVIE_ID;
+
+Write a SQL statement to add primary key for the column movie_id in the movies_renamed table.
+ALTER TABLE MOVIES_RENAMED
+ADD COLUMN MOVIE_ID INT PRIMARY KEY ;
+
+Write a SQL statement to add a foreign key constraint named fk_candidate_id on company_id column referencing to the primar
+y key company_id from the company table.
